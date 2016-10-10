@@ -26,6 +26,8 @@ public class PrettyPrintApple{
 //        prettyPrintApple(inventory, new PrettyPrintInterface() {});
         
         prettyPrintApple(inventory, (Apple a)->a.toString());
+	 //equivalente a 
+        prettyPrintApple(inventory, Apple::toString);
     }
     
     /*
