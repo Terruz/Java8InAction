@@ -22,17 +22,22 @@ public class PrettyPrintApple{
 			}
 		});
         
-        prettyPrintApple(inventory, new PrettyPrintInterface() {});
+// se di print ci fosse la default implementation        
+//        prettyPrintApple(inventory, new PrettyPrintInterface() {});
         
+        prettyPrintApple(inventory, (Apple a)->a.toString());
     }
     
     /*
-     * interfaccia funzionale
+     * interfaccia funzionale: ha un solo metodo da implementare -> la posso usare con le le labda
+     * puo avere n altri metodi di default implementati ma ne deve avere 1 astratto per poteer essere usato come metodo astratto
+     * 
+     * @FunctionalInterface è un anotation nonindispensabile ma è utile per controllare che ci sia un 
+     * unico metodo astratto nell'interfaccia (ie. serve per dire che è usato per le lambda)
      */
+    @FunctionalInterface
     public interface PrettyPrintInterface {
-    	 public default String print(Apple apple) {
-			return apple.toString();
-		}
+    	 public   String print(Apple apple) ;
     }
     
     public static void prettyPrintApple(List<Apple> list, PrettyPrintInterface printer)
